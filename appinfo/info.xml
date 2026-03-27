@@ -19,7 +19,7 @@ Security:
 - Passphrase stored in memory only, never sent to server
 - Auto-lock clears passphrase and removes decrypted content from DOM
     ]]></description>
-    <version>0.1.0-beta</version>
+    <version>0.1.0-beta.2</version>
     <licence>AGPL-3.0-or-later</licence>
     <author mail="suchy@dwiggy.net">Jakub Suchý</author>
     <category>files</category>
