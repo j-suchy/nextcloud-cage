@@ -26,6 +26,8 @@ Security:
     <category>security</category>
     <bugs>https://github.com/j-suchy/nextcloud-cage/issues</bugs>
     <repository type="git">https://github.com/j-suchy/nextcloud-cage</repository>
+    <screenshot>https://raw.githubusercontent.com/j-suchy/nextcloud-cage/main/screenshots/cage-new-file-passphrase.png</screenshot>
+    <screenshot>https://raw.githubusercontent.com/j-suchy/nextcloud-cage/main/screenshots/cage-file-view.png</screenshot>
 
     <dependencies>
         <php min-version="8.1"/>
