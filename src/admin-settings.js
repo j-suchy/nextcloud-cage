@@ -5,7 +5,7 @@
 
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { getAppRootUrl } from '@nextcloud/router'
+import { generateUrl } from '@nextcloud/router'
 
 document.addEventListener('DOMContentLoaded', () => {
 	const autoLockSelect = document.getElementById('auto_lock_minutes')
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const payload = {}
 		payload[settingName] = parseInt(value, 10)
 
-		fetch(getAppRootUrl('cage') + '/api/v1/settings', {
+		fetch(generateUrl('/apps/cage/api/v1/settings'), {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',

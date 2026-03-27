@@ -5,7 +5,7 @@
 
 import { DefaultType, FileAction, registerFileAction } from '@nextcloud/files'
 import { translate as t } from '@nextcloud/l10n'
-import { getAppRootUrl } from '@nextcloud/router'
+import { generateUrl } from '@nextcloud/router'
 import appIconSvg from '../img/app-icon.svg?raw'
 
 // Register file action for .age files
@@ -26,7 +26,7 @@ registerFileAction(new FileAction({
 	async exec(node) {
 		const filePath = node.path
 		const params = new URLSearchParams({ file: filePath })
-		const url = getAppRootUrl('cage') + '/viewer?' + params.toString()
+		const url = generateUrl('/apps/cage/viewer?' + params.toString())
 
 		window.location.href = url
 

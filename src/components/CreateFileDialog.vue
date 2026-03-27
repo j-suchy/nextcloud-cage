@@ -28,7 +28,7 @@
 <script>
 import { showError } from '@nextcloud/dialogs'
 import { translate as t } from '@nextcloud/l10n'
-import { getAppRootUrl } from '@nextcloud/router'
+import { generateUrl } from '@nextcloud/router'
 import { NcButton, NcDialog, NcTextField } from '@nextcloud/vue'
 import { createFile } from '../services/fileApi.js'
 
@@ -80,7 +80,7 @@ export default {
 
 				// Navigate to cage viewer to initialize the file
 				const params = new URLSearchParams({ file: filePath })
-				const url = getAppRootUrl('cage') + '/viewer?' + params.toString()
+				const url = generateUrl('/apps/cage/viewer?' + params.toString())
 
 				window.location.href = url
 			} catch (error) {
