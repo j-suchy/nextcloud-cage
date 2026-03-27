@@ -39,7 +39,4 @@ Security:
         <admin-section>OCA\Cage\Settings\AdminSection</admin-section>
     </settings>
 
-    <navigations>
-        <!-- No app navigation item - file handler only -->
-    </navigations>    
 </info>
