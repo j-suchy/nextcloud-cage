@@ -1,6 +1,6 @@
 {
   "name": "cage",
-  "version": "0.1.0-beta",
+  "version": "0.1.0",
   "description": "Client-side age encryption viewer/editor for Nextcloud",
   "license": "AGPL-3.0-or-later",
   "author": "Jakub Suchy",

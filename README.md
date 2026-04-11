@@ -43,7 +43,7 @@ cage is designed for **text-based files** such as notes, passwords, and configur
 ## Installation
 
 ### From Nextcloud App Store
-*(Coming soon)*
+- See [cage in Nextcloud App Store](https://apps.nextcloud.com/apps/cage)
 
 ### Manual Installation
 
