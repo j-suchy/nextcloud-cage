@@ -10,8 +10,15 @@
 		@close="$emit('cancel')">
 		<div v-if="!useCustomPassphrase" class="cage-generated-passphrase-section">
 			<NcFormBoxCopyButton
+				v-if="hasClipboardAPI"
 				:value="generatedPassphrase"
 				:label="t('cage', 'Your generated passphrase')"
+				class="cage-passphrase-copybox" />
+			<NcTextField
+				v-else
+				v-model="generatedPassphrase"
+				:label="t('cage', 'Your generated passphrase')"
+				readonly
 				class="cage-passphrase-copybox" />
 			<div class="cage-passphrase-info">
 				{{ t('cage', '{wordCount} words • ~{entropy} bits entropy', { wordCount, entropy }) }}
@@ -87,7 +94,7 @@
 
 <script>
 import { translate as t } from '@nextcloud/l10n'
-import { NcButton, NcCheckboxRadioSwitch, NcDialog, NcFormBoxCopyButton, NcNoteCard, NcPasswordField } from '@nextcloud/vue'
+import { NcButton, NcCheckboxRadioSwitch, NcDialog, NcFormBoxCopyButton, NcNoteCard, NcPasswordField, NcTextField } from '@nextcloud/vue'
 import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue'
 import Refresh from 'vue-material-design-icons/Refresh.vue'
 import {
@@ -104,6 +111,7 @@ export default {
 		NcDialog,
 		NcButton,
 		NcFormBoxCopyButton,
+		NcTextField,
 		NcNoteCard,
 		NcPasswordField,
 		NcCheckboxRadioSwitch,
@@ -141,6 +149,12 @@ export default {
 	},
 
 	computed: {
+		hasClipboardAPI() {
+			// Check Clipboard API (not Nextcloud's fallback object)
+			const hasAPI = navigator.clipboard && navigator.clipboard[Symbol.toStringTag] === 'Clipboard'
+			return hasAPI
+		},
+
 		dialogTitle() {
 			return this.mode === 'change'
 				? t('cage', 'cage — Change Passphrase')
