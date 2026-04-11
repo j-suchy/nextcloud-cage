@@ -21,7 +21,7 @@ registerFileAction(new FileAction({
 		}
 		// Check if the file has .age extension (case-insensitive)
 		const isAgeFile = nodes[0].type === 'file' && nodes[0].basename.toLowerCase().endsWith('.age')
-		return isAgeFile;
+		return isAgeFile
 	},
 	async exec(node) {
 		const filePath = node.path
