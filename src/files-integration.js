@@ -3,18 +3,18 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { DefaultType, FileAction, registerFileAction } from '@nextcloud/files'
+import { DefaultType, registerFileAction } from '@nextcloud/files'
 import { translate as t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
 import appIconSvg from '../img/app-icon.svg?raw'
 
 // Register file action for .age files
-registerFileAction(new FileAction({
+registerFileAction({
 	id: 'cage-view',
 	displayName: () => t('cage', 'Open in cage'),
 	iconSvgInline: () => appIconSvg,
 	default: DefaultType.DEFAULT,
-	enabled: (nodes) => {
+	enabled: ({ nodes }) => {
 		// Enable for .age files only
 		if (nodes.length !== 1) {
 			return false
@@ -23,7 +23,8 @@ registerFileAction(new FileAction({
 		const isAgeFile = nodes[0].type === 'file' && nodes[0].basename.toLowerCase().endsWith('.age')
 		return isAgeFile
 	},
-	async exec(node) {
+	async exec({ nodes }) {
+		const node = nodes[0]
 		const filePath = node.path
 		const params = new URLSearchParams({ file: filePath })
 		const url = generateUrl('/apps/cage/viewer?' + params.toString())
@@ -33,7 +34,7 @@ registerFileAction(new FileAction({
 		return null
 	},
 	order: -10, // Higher priority
-}))
+})
 
 import { addNewFileMenuEntry } from '@nextcloud/files'
 import { createApp } from 'vue'
