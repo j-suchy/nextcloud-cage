@@ -48,6 +48,25 @@ cage is designed for **text-based files** such as notes, passwords, and configur
 
 ### Manual Installation
 
+1. Download the latest compatible release from [GitHub Releases](https://github.com/j-suchy/nextcloud-cage/releases)
+
+2. Extract to your Nextcloud `apps/` directory:
+   ```bash
+   cd /path/to/nextcloud/apps
+   tar -xzf cage-*.tar.gz
+   ```
+
+3. Enable the app:
+   ```bash
+   sudo -u www-data php occ app:enable cage
+   ```
+
+4. Configure settings in **Settings → Administration → cage - Client-side age**
+
+### Installation from Source
+
+For development or to use the latest unreleased code:
+
 1. Clone this repository into your Nextcloud `apps/` directory:
    ```bash
    cd /path/to/nextcloud/apps
