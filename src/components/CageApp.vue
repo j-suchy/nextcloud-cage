@@ -127,7 +127,7 @@
 <script>
 import { translate as t } from '@nextcloud/l10n'
 import { getLoggerBuilder } from '@nextcloud/logger'
-import { getAppRootUrl } from '@nextcloud/router'
+import { generateUrl  } from '@nextcloud/router'
 import { NcActionButton, NcActions, NcAppContent, NcChip, NcContent } from '@nextcloud/vue'
 import Close from 'vue-material-design-icons/Close.vue'
 import ContentSave from 'vue-material-design-icons/ContentSave.vue'
@@ -487,7 +487,7 @@ export default {
 			// Navigate back to the folder containing the file
 			const directory = this.filePath.substring(0, this.filePath.lastIndexOf('/'))
 			const params = new URLSearchParams({ dir: directory || '/' })
-			const url = getAppRootUrl('files') + '?' + params.toString()
+			const url = generateUrl('/apps/files') + '?' + params.toString()
 
 			window.location.href = url
 		},
