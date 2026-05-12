@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.1 (2026-05-12)
+- Fixed redirection URL for Close/Cancel buttons (issue #1)
+- Fixed duplicate confirmation dialog on closing in the editing mode
+- Checked the compatibility with Nextcloud 34
+
 ## v0.2.0 (2026-04-12)
 - use @nextcloud/files v4.0.0, supported version for Nextcloud 33
 

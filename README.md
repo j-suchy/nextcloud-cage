@@ -29,7 +29,7 @@ cage is designed for **text-based files** such as notes, passwords, and configur
 - FIDO2/WebAuthn support
 
 ## Compatibility
-- Nextcloud 33
+- Nextcloud 33-34
 - Nextcloud 31-32 (only version 0.1.0)
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 
