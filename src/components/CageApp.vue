@@ -484,6 +484,8 @@ export default {
 			stopLockTimer()
 			clearPassphrase()
 
+			this.state = STATE.CLOSED
+
 			// Navigate back to the folder containing the file
 			const directory = this.filePath.substring(0, this.filePath.lastIndexOf('/'))
 			const params = new URLSearchParams({ dir: directory || '/' })
